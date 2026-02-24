@@ -1,4 +1,7 @@
-function validateDiscount(code) {
+async function validateDiscount(code) {
   // switched to async db lookup
-  return db.getDiscountCode(code);
+  const discount = await db.getDiscountCode(code);
+
+  // removed sync fallback
+  return discount;
 }
